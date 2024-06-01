@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Your Reservations</h2>
+<ul>
+    {% for rezervare in rezervari %}
+    <li>
+        <strong>{{ rezervare.spectacol.nume }}</strong> - {{ rezervare.locuri_rezervate }} seats reserved
+        <form action="{{ url_for('anuleaza_rezervare', id=rezervare.id) }}" method="post">
+            <button type="submit">Cancel Reservation</button>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

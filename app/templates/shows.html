@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Available Shows</h2>
+<ul>
+    {% for spectacol in spectacole %}
+    <li>
+        <strong>{{ spectacol.nume }}</strong> - {{ spectacol.data_ora }} - Locuri disponibile: {{ spectacol.locuri_disponibile }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

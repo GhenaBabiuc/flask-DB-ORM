@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Upcoming Shows</h2>
+<ul>
+    {% for spectacol in spectacole %}
+    <li>
+        <strong>{{ spectacol.nume }}</strong> - {{ spectacol.data_ora }} - Locuri disponibile: {{ spectacol.locuri_disponibile }}
+        <form action="{{ url_for('sterge_spectacol', id=spectacol.id) }}" method="post">
+            <button type="submit">Delete</button>
+        </form>
+        <a href="{{ url_for('fa_rezervare', spectacol_id=spectacol.id) }}">Make a Reservation</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
